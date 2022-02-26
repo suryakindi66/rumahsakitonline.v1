@@ -56,8 +56,9 @@
               <img src="/images/favicon.png" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+             
               <a class="dropdown-item" href="/admin/logout">Logout</a>
-              <a class="dropdown-item" href="#">Profile</a>
+              
 
             </div>
           </li>

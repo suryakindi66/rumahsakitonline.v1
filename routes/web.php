@@ -67,6 +67,8 @@ Route::group(['middleware' => ['adminverify']], function(){
     Route::get('/admin/deletepengumuman/{id}', [AdminController::class, 'deletepengumuman'])->name('admin');
     Route::get('/admin/editpengumuman/{id}', [AdminController::class, 'editpengumuman'])->name('admin');
     Route::put('/admin/editpengumuman/{id}', [AdminController::class, 'posteditpengumuman'])->name('admin');
+    Route::get('/admin/profile/{id}', [AdminController::class, 'profile']);
+    Route::PUT('/admin/profile/{id}', [AdminController::class, 'postprofile']);
 });
 
 Route::get('/admin/logout', [AdminController::class, 'logout']);

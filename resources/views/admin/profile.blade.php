@@ -127,21 +127,29 @@
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Tambah Jadwal Dokter
+                    <h4 class="card-title">Your Profile
                     </h4>
                   
-                    <form action="/admin/jadwal-dokter" method="POST">
+                    <form action="/admin/profile/{{$detailprofile->id}}" method="POST">
+                        @method('PUT')
                       @csrf
                         <div class="form-group">
-                          @if(session()->has('sukses-adddokter'))
-                          <h4 style="color: green">Sukses Menambahkan Data</h4>
+                          @if(session()->has('sukses-editprofile'))
+                          <h4 style="color: green">Sukses Edit Profile</h4>
                           @endif
-                        <label for="exampleInputName1">Nama Dokter</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Nama Dokter" name="name">
+                          @if(session()->has('passwordtidaksama'))
+                          <h4 style="color: red">Password Dan Confirm Password Harus sama!</h4>
+                          @endif
+                        <label for="exampleInputName1">Email</label>
+                        <input type="text" class="form-control" id="exampleInputName1" value="{{$detailprofile->email}}" name="email" readonly>
                       </div>
                       <div class="form-group">
-                        <label for="jadwal3">Jadwal Dokter</label>
-                        <input type="text" class="form-control" id="jadwal3" placeholder="9 Pagi - 10 Malam" name="jadwal">
+                        <label for="pw1">Password</label>
+                        <input type="password" class="form-control" id="pw2" name="password">
+                      </div>
+                      <div class="form-group">
+                        <label for="pw2">Confirm Password</label>
+                        <input type="password" class="form-control" id="pw2" name="confirmpassword">
                       </div>
                      
                       

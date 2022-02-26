@@ -56,9 +56,8 @@
               <img src="/images/favicon.png" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+        
               <a class="dropdown-item" href="/admin/logout">Logout</a>
-              <a class="dropdown-item" href="#">Profile</a>
-
             </div>
           </li>
           
@@ -143,7 +142,7 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Jadwal Dokter</h4>
+                    <h4 class="card-title">Pasien </h4>
                   
                     <div class="table-responsive">
                         <table class="table table-striped">

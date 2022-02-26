@@ -163,6 +163,26 @@ class AdminController extends Controller
         return back();
 
     }
+
+    public function profile($id){
+    $detailprofile = User::find($id);
+    return view('admin.profile', ['detailprofile' => $detailprofile]);
+
+    }
+
+    public function postprofile(request $request, $id){
+        $detailprofile = User::find($id);
+        if($request->password == $request->confirmpassword){
+            $detailprofile->password = bcrypt($request->confirmpassword);
+            $detailprofile->save();
+            $request->session()->flash('sukses-editprofile');
+        }
+        else{
+        $request->session()->flash('passwordtidaksama');
+        }
+        return back();
+    
+    }
     public function logout(request $request)
     {
         Auth::logout();
