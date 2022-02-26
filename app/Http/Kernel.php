@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'verification' => \App\Http\Middleware\VerificationSession::class,
         'authadmin' => \App\Http\Middleware\CheckSessionAdmin::class,
         'adminverify' => \App\Http\Middleware\DashboardAdmin::class,
+        'userverify' => \App\Http\Middleware\userverify::class,
     ];
 }

@@ -37,7 +37,7 @@ Route::post('/login', [LoginUserController::class, 'postlogin'])->name('login');
 Route::get('/user/logout', [UserController::class, 'logout']);
 
 /* grouping middleware */
-Route::group(['middleware' => ['auth']], function(){
+Route::group(['middleware' => ['userverify']], function(){
     Route::get('/user/dashboard', [UserController::class, 'index']);
     Route::get('/user/pengajuan-pendaftaran', [UserController::class, 'indexpengajuan']);
     Route::post('/user/pengajuan-pendaftaran', [UserController::class, 'store']);
@@ -63,6 +63,10 @@ Route::group(['middleware' => ['adminverify']], function(){
     Route::get('/admin/createpengumuman', [AdminController::class, 'viewcreatepengumuman'])->name('admin');
     Route::post('/admin/createpengumuman', [AdminController::class, 'createpengumuman'])->name('admin');
     Route::get('/admin/deletedokter/{id}', [AdminController::class, 'deletedokter'])->name('admin');
+    Route::get('/admin/detailspengumuman', [AdminController::class, 'detailspengumuman'])->name('admin');
+    Route::get('/admin/deletepengumuman/{id}', [AdminController::class, 'deletepengumuman'])->name('admin');
+    Route::get('/admin/editpengumuman/{id}', [AdminController::class, 'editpengumuman'])->name('admin');
+    Route::put('/admin/editpengumuman/{id}', [AdminController::class, 'posteditpengumuman'])->name('admin');
 });
 
 Route::get('/admin/logout', [AdminController::class, 'logout']);

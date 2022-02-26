@@ -2,10 +2,13 @@
 <html lang="en">
 
 <head>
+  
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Dashboard Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- plugins:css -->
   <link rel="stylesheet" href="/assets-admin/vendors/feather/feather.css">
   <link rel="stylesheet" href="/assets-admin/vendors/ti-icons/css/themify-icons.css">
@@ -55,6 +58,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item" href="/admin/logout">Logout</a>
+              <a class="dropdown-item" href="#">Profile</a>
 
             </div>
           </li>
@@ -126,6 +130,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="/admin/datapasien"> Data Pasien </a></li>
                 <li class="nav-item"> <a class="nav-link" href="/admin/createpengumuman"> Bikin Pengumuman </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/detailspengumuman"> Papan Pengumuman </a></li>
               </ul>
             </div>
           </li>
@@ -154,7 +159,7 @@
                             <th>
                               Jadwal Dokter
                             </th>
-                            <th>
+                            <th style="text-align: center">
                               Action
                             </th>
                           
@@ -175,7 +180,7 @@
                             <td>
                                 {{$item->jadwal}}
                             </td>
-                           <td><a href="/admin/deletedokter/{{$item->id}}"><button class="btn btn-danger">Delete</button></a></td>
+                           <td><a href="/admin/deletedokter/{{$item->id}}"><center><button class="btn btn-danger"><i class="fa fa-trash"></i></button></center></a></td>
                           </tr>
                           @endforeach
                         </tbody>

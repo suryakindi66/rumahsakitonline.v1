@@ -138,6 +138,31 @@ class AdminController extends Controller
       return redirect('/admin/detail-jadwal-dokter');
     }
   
+    public function detailspengumuman(){
+        $detailpengumuman = Pengumuman::all();
+        return view('admin.viewpengumuman', ['detailpengumuman'=>$detailpengumuman]);
+
+    }
+    public function deletepengumuman(request $request, $id){
+        $deletepengumuman = Pengumuman::find($id);
+        $deletepengumuman->delete();
+        $request->session()->flash('deletepengumuman');
+        return redirect('/admin/detailspengumuman');
+
+    }
+    public function editpengumuman($id){
+        $editpengumuman = Pengumuman::find($id);
+        return view('admin.editpengumuman', ['editpengumuman' => $editpengumuman]);
+
+    }
+    public function posteditpengumuman(Request $request, $id){
+        $editpengumuman = Pengumuman::find($id);
+        $editpengumuman->judul_pengumuman = $request->judulpengumuman;
+        $editpengumuman->isi_pengumuman = $request->isipengumuman;
+        $editpengumuman->save();
+        return back();
+
+    }
     public function logout(request $request)
     {
         Auth::logout();

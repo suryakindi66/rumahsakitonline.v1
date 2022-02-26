@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Dashboard User</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- plugins:css -->
   <link rel="stylesheet" href="/assets-admin/vendors/feather/feather.css">
   <link rel="stylesheet" href="/assets-admin/vendors/ti-icons/css/themify-icons.css">
@@ -110,7 +112,7 @@
             </a>
             <div class="collapse" id="tables">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/user/details-dokter">Lihat Jadwal Dokter</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/user/details-dokter">Jadwal Dokter</a></li>
               </ul>
             </div>
           </li>
@@ -210,7 +212,7 @@
                               
                                </td>
                                <td>
-                                <a href="/user/batal-pendaftaran/{{$item->id}}"><button class="btn btn-danger">Batalkan</button></a>
+                                <a href="/user/batal-pendaftaran/{{$item->id}}"><button class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></button></a>
                                </td>
                               
                           </tr>

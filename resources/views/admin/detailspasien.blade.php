@@ -57,6 +57,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item" href="/admin/logout">Logout</a>
+              <a class="dropdown-item" href="#">Profile</a>
 
             </div>
           </li>
@@ -128,6 +129,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="/admin/datapasien"> Data Pasien </a></li>
                 <li class="nav-item"> <a class="nav-link" href="/admin/createpengumuman"> Bikin Pengumuman </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/detailspengumuman"> Papan Pengumuman </a></li>
               </ul>
             </div>
           </li>

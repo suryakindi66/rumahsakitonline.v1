@@ -110,7 +110,7 @@
             </a>
             <div class="collapse" id="tables">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/user/details-dokter">Lihat Jadwal Dokter</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/user/details-dokter">Jadwal Dokter</a></li>
               </ul>
             </div>
           </li>

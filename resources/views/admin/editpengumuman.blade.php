@@ -43,7 +43,6 @@
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item" href="/admin/logout">Logout</a>
               <a class="dropdown-item" href="#">Profile</a>
-
             </div>
           </li>
           
@@ -131,18 +130,19 @@
                     <h4 class="card-title">Buat Pengumuman
                     </h4>
                   
-                    <form action="/admin/createpengumuman" method="POST">
+                    <form action="/admin/editpengumuman/{{$editpengumuman->id}}" method="POST">
+                    @method('PUT')
                       @csrf
                         <div class="form-group">
-                          @if(session()->has('sukses-createpengumuman'))
+                          @if(session()->has('sukses-editpengumuman'))
                           <h4 style="color: green">Sukses Menambahkan Pengumuman</h4>
                           @endif
                         <label for="exampleInputName1">Judul Pengumuman</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Judul Pengumuman" name="judulpengumuman">
+                        <input type="text" class="form-control" id="exampleInputName1" value="{{$editpengumuman->judul_pengumuman}}" name="judulpengumuman">
                       </div>
                       <div class="form-group">
                         <label for="jadwal3">Isi Pengumuman</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="isipengumuman" required></textarea>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="isipengumuman" required>{{$editpengumuman->isi_pengumuman}}</textarea>
                       </div>
                      
                       

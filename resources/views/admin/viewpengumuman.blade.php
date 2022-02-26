@@ -6,6 +6,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Dashboard Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- plugins:css -->
   <link rel="stylesheet" href="/assets-admin/vendors/feather/feather.css">
   <link rel="stylesheet" href="/assets-admin/vendors/ti-icons/css/themify-icons.css">
@@ -19,7 +21,7 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="/assets-admin/css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="/assets-admin/images/favicon.png" />
+  <link rel="shortcut icon" href="/images/favicon.png" />
 </head>
 <body>
   <div class="container-scroller">
@@ -33,12 +35,25 @@
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
-        
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <form action="/admin/detail-jadwal-dokter">
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search" name="search">
+              </form>
+              </div>
+          </li>
+        </ul>
         <ul class="navbar-nav navbar-nav-right">
           
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <img src="/images/favicon.png" alt="profile"/>
+              <img src="/images/favicon.png" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item" href="/admin/logout">Logout</a>
@@ -125,30 +140,54 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-            <div class="col-12 grid-margin stretch-card">
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Buat Pengumuman
-                    </h4>
-                  
-                    <form action="/admin/createpengumuman" method="POST">
-                      @csrf
-                        <div class="form-group">
-                          @if(session()->has('sukses-createpengumuman'))
-                          <h4 style="color: green">Sukses Menambahkan Pengumuman</h4>
-                          @endif
-                        <label for="exampleInputName1">Judul Pengumuman</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Judul Pengumuman" name="judulpengumuman">
-                      </div>
-                      <div class="form-group">
-                        <label for="jadwal3">Isi Pengumuman</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4" name="isipengumuman" required></textarea>
-                      </div>
-                     
-                      
-                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                      <button class="btn btn-light">Cancel</button>
-                    </form>
+                    <h4 class="card-title">PAPAN PENGUMUMAN</h4>
+                    @if(session()->has('deletepengumuman'))
+                    <h3 style="color: red">Pengumuman Dihapus.</h3>
+                    @endif
+                    <div class="table-responsive pt-3">
+                      <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th>
+                              #
+                            </th>
+                            <th>
+                              Judul Pengumuman
+                            </th>
+                            <th>
+                              Isi Pengumuman
+                            </th>
+                            <th colspan="2" style="text-align: center">
+                              Action
+                            </th>
+                          
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $no = 1;
+                            ?>
+                            @foreach ($detailpengumuman as $item)
+                          <tr>
+                            <td>
+                              <?php echo $no++; ?>
+                            </td>
+                            <td>
+                              {{$item->judul_pengumuman}}
+                            </td>
+                            <td>
+                                {{$item->isi_pengumuman}}
+                            </td>
+                           <td><a href="/admin/deletepengumuman/{{$item->id}}"><center><button class="btn btn-danger"><i class="fa fa-trash"></i></button></center></a></td>
+                           <td><a href="/admin/editpengumuman/{{$item->id}}"><center><button class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i></button></center></a></td>
+                          </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
