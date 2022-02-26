@@ -34,7 +34,7 @@ Route::post('/pendaftaran', [RegisterController::class, 'store']);
 Route::get('/login', [LoginUserController::class, 'index'])->middleware('verification')->name('login');
 Route::post('/login', [LoginUserController::class, 'postlogin'])->name('login');
 
-Route::get('/user/logout', [UserController::class, 'logout']);
+
 
 /* grouping middleware */
 Route::group(['middleware' => ['userverify']], function(){
@@ -44,8 +44,10 @@ Route::group(['middleware' => ['userverify']], function(){
     Route::get('/user/history', [UserController::class, 'show']);
     Route::get('/user/batal-pendaftaran/{id}', [UserController::class, 'delete']);
     Route::get('/user/details-dokter', [UserController::class, 'detailsdokter']);
+    Route::get('/user/profile/{id}', [UserController::class, 'profile']);
+    Route::put('/user/profile/{id}', [UserController::class, 'postprofile']);
 });
-
+Route::get('/user/logout', [UserController::class, 'logout']);
 
 /*penutup area user login dan dashboard */
 

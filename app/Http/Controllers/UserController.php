@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use App\Models\Pengumuman;
+Use App\Models\User;
 
 class UserController extends Controller
 {
@@ -104,6 +105,24 @@ class UserController extends Controller
        $delete->delete();
        return redirect('/user/history');
     }
+    public function profile($id)
+    {
+       $detailprofile = User::find($id);
+        return view('user.profile', ['detailprofile'=>$detailprofile]);
+    }
+    
+    public function postprofile(request $request, $id){
+        $editprofile = User::find($id);
+        if($request->password == $request->confirmpassword){
+            $editprofile->password = bcrypt($request->confirmpassword);
+            $editprofile->save();
+            $request->session()->flash('sukses-editprofile');
+        }else{
+            $request->session()->flash('passwordtidaksama');
+        }
+        return back();
+    }
+
     public function logout(request $request){
         Auth::logout();
         

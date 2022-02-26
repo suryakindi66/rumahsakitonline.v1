@@ -5,8 +5,6 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Dashboard User</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="/assets-admin/vendors/feather/feather.css">
@@ -21,44 +19,30 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="/assets-admin/css/vertical-layout-light/style.css">
   <!-- endinject -->
-  <link rel="shortcut icon" href="/assets-admin/images/favicon.png" />
+  <link rel="shortcut icon" href="/images/favicon.png" />
 </head>
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="#">USER AREA</a>
+        <a class="navbar-brand brand-logo mr-5" href="#">Dashboard</a>
         <a class="navbar-brand brand-logo-mini" href="#"><img src="/assets-admin/images/logo-mini.svg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
-        <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item nav-search d-none d-lg-block">
-            <div class="input-group">
-              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                <span class="input-group-text" id="search">
-                  <i class="icon-search"></i>
-                </span>
-              </div>
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
-            </div>
-          </li>
-        </ul>
+        
         <ul class="navbar-nav navbar-nav-right">
           
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <i class="fa fa-user" alt="Profile /"></i>
+              <img src="/images/favicon.png" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="/user/profile/{{Auth()->user()->id}}">Profile</a>
+        
               <a class="dropdown-item" href="/user/logout">Logout</a>
-                
-                
-              </a>
             </div>
           </li>
           
@@ -95,7 +79,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="/user/dashboard">
+            <a class="nav-link" href="/admin/dashboard">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -106,12 +90,15 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
               <i class="icon-grid-2 menu-icon"></i>
-              <span class="menu-title">Jadwal Dokter</span>
+              <span class="menu-title">Tables</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="tables">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/user/details-dokter">Jadwal Dokter</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/jadwal-dokter">Tambah Dokter</a></li>
+              </ul>
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/admin/detail-jadwal-dokter">Jadwal Dokter</a></li>
               </ul>
             </div>
           </li>
@@ -124,8 +111,9 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="/user/pengajuan-pendaftaran">  Ajukan Pendaftaran </a></li>
-                <li class="nav-item"> <a class="nav-link" href="/user/history"> History </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/datapasien"> Data Pasien </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/createpengumuman"> Bikin Pengumuman </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/admin/detailspengumuman"> Papan Pengumuman </a></li>
               </ul>
             </div>
           </li>
@@ -136,51 +124,41 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="row">
-            <div class="col-md-12 grid-margin">
-              <div class="row">
-                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Welcome {{Auth()->user()->firstname;}}</h3>
-               
-                </div>
-                <div class="col-12 col-xl-4">
-                 <div class="justify-content-end d-flex">
-                  <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                  </div>
-                 </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 grid-margin stretch-card">
-              <div class="card tale-bg">
-                <div class="card-people mt-auto">
-                  <img src="/assets-admin/images/dashboard/people.svg" alt="people">
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Your Profile
+                    </h4>
                   
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 grid-margin transparent">
-              <div class="row">
-             
-                <div class="col-md-6 stretch-card transparent">
-                  <div class="card card-light-danger">
-                    <div class="card-body">
-                    
-                      <h3 class="mb-4">Pengumuman</h3>
-                      <?php $no=1; ?>
-                      @foreach ($detailspengumuman as $itempengumuman)
-
-                      <p style="color: black"><?php echo $no++ ?>. {{$itempengumuman->isi_pengumuman}}</p>
-                      @endforeach
-                    </div>
+                    <form action="/user/profile/{{$detailprofile->id}}" method="POST">
+                        @method('PUT')
+                      @csrf
+                        <div class="form-group">
+                          @if(session()->has('sukses-editprofile'))
+                          <h4 style="color: green">Sukses Edit Profile</h4>
+                          @endif
+                          @if(session()->has('passwordtidaksama'))
+                          <h4 style="color: red">Password Dan Confirm Password Harus sama!</h4>
+                          @endif
+                        <label for="exampleInputName1">Email</label>
+                        <input type="text" class="form-control" id="exampleInputName1" value="{{$detailprofile->email}}" name="email" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="pw1">Password</label>
+                        <input type="password" class="form-control" id="pw2" name="password">
+                      </div>
+                      <div class="form-group">
+                        <label for="pw2">Confirm Password</label>
+                        <input type="password" class="form-control" id="pw2" name="confirmpassword">
+                      </div>
+                     
+                      
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-light">Cancel</button>
+                    </form>
                   </div>
                 </div>
               </div>
-            </div>
-    
-          </div>
           
           <div class="row">
             
