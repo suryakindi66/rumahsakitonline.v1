@@ -197,7 +197,7 @@
                             {{$item->alamat}}
                               </td>
                               <td>
-                                {{$item->created_at}}
+                                {{$item->created_at->format('d/m/y')}}
                                </td>
                                <td>
                               @if($item->status == "Pending")

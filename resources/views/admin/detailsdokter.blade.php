@@ -36,20 +36,7 @@
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
-        <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item nav-search d-none d-lg-block">
-            <div class="input-group">
-              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                <span class="input-group-text" id="search">
-                  <i class="icon-search"></i>
-                </span>
-              </div>
-              <form action="/admin/detail-jadwal-dokter">
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search" name="search">
-              </form>
-              </div>
-          </li>
-        </ul>
+       
         <ul class="navbar-nav navbar-nav-right">
           
           <li class="nav-item nav-profile dropdown">
@@ -145,7 +132,20 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Jadwal Dokter</h4>
-                  
+                    <ul class="navbar-nav mr-lg-2">
+                      <li class="nav-item nav-search d-none d-lg-block">
+                        <div class="input-group">
+                          <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                            <span class="input-group-text" id="search">
+                              <i class="icon-search"></i>
+                            </span>
+                          </div>
+                          <form action="/admin/detail-jadwal-dokter">
+                          <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search" name="search">
+                          </form>
+                          </div>
+                      </li>
+                    </ul>
                     <div class="table-responsive pt-3">
                       <table class="table table-bordered">
                         <thead>
