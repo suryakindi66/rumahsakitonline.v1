@@ -6,6 +6,16 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+## INSTALATION
+1. CLONE THIS REPOSITORY / DOWNLOAD .ZIP
+2. EXTRACT IF YOU DOWNLOAD WITH .ZIP
+3. OPEN CMD, AND DIRECT TO YOUR PROJECT DIRECTORY THEN INSTALL COMPOSER FIRST ( composer --install ) TO GET VENDOR FOLDER
+4. CREATE DB WITH PHPMYADMIN OR SOMETHING LIKE THAT WITH DB NAME : pendaftaran_rumahsakit
+5. CHANGE file .env.example >> .env
+6. BACK TO CMD, AND RUN THIS ( php artisan migrate )
+7. AND THEN, RUNNING THE PROJECT ON CMD WITH ( php artisan serve )
+8. OPEN http://127.0.0.1:8000/
+9. ENJOY :)
 
 ## About Laravel
 
